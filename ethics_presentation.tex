@@ -3,15 +3,41 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+% see https://tex.stackexchange.com/questions/68080/beamer-bibliography-icon/68084#68084 for reference
+\usepackage[style=authoryear,dashed=false,backend=biber]{biblatex}
+\usepackage{hyperref}
+
+\setbeamertemplate{bibliography item}{%
+	\ifboolexpr{ test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+		or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+		or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}} }
+	{\setbeamertemplate{bibliography item}[book]}
+	{\ifentrytype{online}
+		{\setbeamertemplate{bibliography item}[online]}
+		{\setbeamertemplate{bibliography item}[article]}}%
+	\usebeamertemplate{bibliography item}}
+
+\defbibenvironment{bibliography}
+{\list{}
+	{\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
+		\setlength{\leftmargin}{\labelwidth}%
+		\setlength{\labelsep}{\biblabelsep}%
+		\addtolength{\leftmargin}{\labelsep}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\item}
+
 % general data
 \title{Smart Home Ambient Intelligence: \\a new limit for our freedom?}
-\subtitle{\vspace*{0.7cm}ethical concerns about personal digital assistants}
+\subtitle{\vspace*{0.7cm}ethical concerns about digital voice assistants}
 \author[Stefano Brandoli]{Stefano Brandoli}
 \institute[PoliMi]{Politecnico di Milano}
 \date{December 12, 2017}
 
 %theme and aspect
 \setbeamertemplate{navigation symbols}{}
+\addbibresource{bibliography.bib}
 %\usetheme{metropolis}
 
 \begin{document}
@@ -24,7 +50,7 @@
 % frame
 \begin{frame}
 \begin{center}{\vspace*{-0.5cm}Smart Home Ambient Intelligence: a new limit for our freedom?
-ethical concerns about personal digital assistants}
+ethical concerns about digital voice assistants}
 \end{center}
 
 
@@ -94,18 +120,11 @@ Test
 \frametitle{Conclusions}
 \end{frame}
 
-% bibliography frame
-\begin{frame}
-\frametitle{Bibliography}
-\begin{thebibliography}{9}
-	\setbeamertemplate{bibliography item}[book]
-	\bibitem[Peter-Paul Verbeek]{verbeek:book} 
-	\textit{Moralizing Technology: Understanding and Designing the Morality of Things}
-	\setbeamertemplate{bibliography item}[book]
-	\bibitem{citekey}
-	\setbeamertemplate{bibliography item}[article]
-
-\end{thebibliography}
+% bibliography frame,see https://tex.stackexchange.com/questions/68080/beamer-bibliography-icon/68084#68084 for reference
+\nocite{*}
+\begin{frame}[noframenumbering,plain,allowframebreaks]{Bibliography}
+\renewcommand*{\bibfont}{{\small}}
+\printbibliography
 \end{frame}
 
 \end{document}
