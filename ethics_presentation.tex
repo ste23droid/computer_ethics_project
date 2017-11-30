@@ -172,7 +172,7 @@ acting in a world of mute material objects on the other.
 \vspace{-0.5cm}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/documentation_preview}
+	\includegraphics[width=0.85\linewidth]{images/documentation_preview}
 	\label{fig:documentationpreview}
 \end{figure}
 
@@ -200,13 +200,14 @@ acting in a world of mute material objects on the other.
 % Developers design the whole conversational interaction. Pre-defined templates
 % riferimento a quanto detto prima che giustifica il perchè del concetto
 
+\vspace{-0.5cm}
 \begin{block}{Script} 
 	\begin{quote}
 		A \textbf{script} is a prescription of  how to act when using the artifact (\cite{verbeek2011moralizing})
 	\end{quote}
 \end{block}
 
-Interactions can be build in two main ways (\cite{googleactions}):
+Interactions can be built in two ways (\cite{googleactions}):
 \begin{itemize}
 	\item \textbf{With templates}
 			%most of the app's conversation and fulfillment is handled by the template
@@ -218,8 +219,16 @@ Interactions can be build in two main ways (\cite{googleactions}):
 		\medskip
 	\item \textbf{Without templates}
 		\begin{itemize}
-			\item DialogFlow and integrated NLP engine
+			\item \textbf{Dialogflow}
+			% built-in natural language understanding: don't have to define a fully exhaustive grammar
+		    % Extract the data you need from user input
+				\begin{itemize}
+					\item machine learning
+					\item natural language understanding
+					\item extract parameters (data) from the user input
+				\end{itemize}
 			\item developers can decide the whole conversational interaction
+			% define what users can say to your app 
 		\end{itemize}
 \end{itemize}
 
@@ -243,13 +252,15 @@ Interactions can be build in two main ways (\cite{googleactions}):
 
 \begin{block}{Invitation/Inhibition} 
 	\begin{quote}
-		The scripts of artifacts suggest specific actions and discourage others (\cite{verbeek2011moralizing})
+		The scripts of artifacts \textbf{suggest specific actions} and \textbf{discourage others} (\cite{verbeek2011moralizing})
 	\end{quote}
 
 \begin{itemize}
-	\item Fullfillment = application logic
-	\item Developers create the logic of the interaction by enabling some actions and inhibiting some others. 
-	\item The conversational interaction doesn't go on if the use hasn't included all the expected parameters in the answer
+	% Fullfillment}
+	% to respond to the user and to complete the requested action
+	\item Developers while creating the application logic (\emph{fulfillment}) \textbf{enable some actions} and \textbf{disable some others}
+	% Dialogflow can extract parameters from the user input, validate the parameter and provide it to your fulfillment as a variable
+	\item The conversational interaction doesn't go on if the user hasn't answered with \textbf{all the required parameters}
 \end{itemize}
 
 \end{block}
@@ -260,10 +271,17 @@ Interactions can be build in two main ways (\cite{googleactions}):
 \frametitle{Invitation/Inhibition: make your own decisions}
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/invitation_inhibition}
-	\caption{DialogFlow building interactions}
+	\includegraphics[width=0.75\linewidth]{images/invitation_inhibition}
 	\label{fig:invitationinhibition}
 \end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/invitation_inhibition_param}
+	\label{fig:invitationinhibitionparam}
+	\caption{DialogFlow interactions}
+\end{figure}
+
 
 \end{frame}
 
