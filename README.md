@@ -5,6 +5,7 @@ You can **[download the presentation here](https://github.com/ste23droid/compute
 
 # Topic of the presentation
 Title: **Smart Home Ambient Intelligence: a new limit to our freedom**
+
 Case Study: **Google Home - Google Assistant Actions**
 
 # Tools used
