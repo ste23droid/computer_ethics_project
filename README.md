@@ -3,10 +3,11 @@ Presentation for the course of [Computer Ethics](http://home.deib.polimi.it/schi
 
 You can **[download the presentation here](https://github.com/ste23droid/computer_ethics_project/raw/master/slides/ethics_presentation.pdf)**.
 
-# Topic of the presentation
+## Topic of the presentation
 Title: **Smart Home Ambient Intelligence: voice assistants**
 
 Case Study: **Google Home - Google Assistant Actions**
 
-# Tools used
-The slides were made using LaTeX and TexStudio
+## Tools used
+* LaTeX: beamer
+* TexStudio
